@@ -39,14 +39,14 @@ const App = () => {
   }, [obj]);
 
   const totalFeedback = obj.good + obj.neutral + obj.bad;
-  const positiveFeedback = Math.round(((obj.good + obj.neutral) / totalFeedback) * 100);
+  const positiveFeedback = Math.round((obj.good / totalFeedback) * 100);
 
   return (
     <div>
       <Description />
       <Options update={updateFeedback} reset={resetFeedback} total={totalFeedback} />
-      <Feedback {...obj} total={totalFeedback} />
-      <Notification total={totalFeedback} positive={positiveFeedback} />
+      <Feedback {...obj} total={totalFeedback} positive={positiveFeedback} />
+      <Notification total={totalFeedback} />
     </div>
   );
 };
